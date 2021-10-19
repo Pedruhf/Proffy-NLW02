@@ -3,33 +3,54 @@ import React from 'react';
 import './styles.css'
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
+import api from '../../services/api';
 
-function TeacherItem() {
+export interface Teacher {
+  id: number,
+  name: string,
+  avatar: string,
+  bio: string,
+  cost: number,
+  subject: string,
+  whatsapp: string,
+}
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function createNewConnection() {
+    api.post('connections', {
+      user_id: teacher.id,
+    });
+  }
+  
   return (
     <article className="teacher-item">
       <header>
-        <img src="https://avatars.githubusercontent.com/u/39572742?v=4" alt="Pedro Freitas" />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Pedro Freitas</strong>
-          <span>Cálculo I</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        O cara é bom, tem nem condições de ter oto cara que sabe tanto calculo como esse mlk sabe
-        <br /><br />
-        Joga fácil d++. Só confia.
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço/hora
-          <strong>R$ 50,00</strong>
+          <strong>R$ {teacher.cost}</strong>
         </p>
-        <button type="button">
+      <a
+      onClick={createNewConnection}
+      target="_blank"
+      rel="noreferrer"
+      href={`https://wa.me/${teacher.whatsapp}?text=Olá, te encontrei na plataforma Proffys e gostaria de agendar uma aula.`}
+      >
           <img src={whatsappIcon} alt="Whatsapp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );
