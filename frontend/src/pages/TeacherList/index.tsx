@@ -1,5 +1,5 @@
 import './styles.css';
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import Input from "../../components/Input";
 
 import PageHeader from '../../components/PageHeader/index';
@@ -28,6 +28,12 @@ function TeacherList() {
     setTeachers(res.data as []);
   }
 
+  useEffect(() => {
+    api.get('classes').then((res: any) => {
+      setTeachers(res.data);
+    })
+  }, []);
+
   return (
     <div id="page-teacher-list" className="container">
       <PageHeader title="Estes são os proffys disponíveis.">
@@ -40,6 +46,7 @@ function TeacherList() {
             options={[
               { value: 'Cálculo I', label: 'Cálculo I' },
               { value: 'Banco de dados', label: 'Banco de dados' },
+              { value: 'Desenvolvimento web', label: 'Desenvolvimento web' },
               { value: 'ReactJS', label: 'ReactJS' },
               { value: 'VueJS', label: 'VueJS' },
               { value: 'Algoritmos', label: 'Algoritmos' },

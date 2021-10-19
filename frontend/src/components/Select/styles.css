@@ -1,6 +1,5 @@
 .select-block {
   position: relative;
-  padding: 0 1.6rem;
 }
 
 .select-block + .select-block {

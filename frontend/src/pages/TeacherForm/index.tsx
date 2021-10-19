@@ -79,6 +79,7 @@ function TeacherForm() {
             <Input
               name="name"
               label="Nome Completo"
+              required
               value={name}
               onChange={(event) => { setName(event.target.value )}}
             />
@@ -91,12 +92,14 @@ function TeacherForm() {
             <Input
               name="whatsapp"
               label="Whatsapp"
+              required
               value={whatsapp}
               onChange={(event) => { setWhatsapp(event.target.value )}}
             />
             <Textarea
               name="bio"
               label="Biografia"
+              required
               value={bio}
               onChange={(event) => { setBio(event.target.value )}}
             />
@@ -108,6 +111,7 @@ function TeacherForm() {
             <Select
               name="subject"
               label="Matéria"
+              required
               value={subject}
               onChange={(event) => { setSubject(event.target.value) }}
               options={[
@@ -122,6 +126,7 @@ function TeacherForm() {
             <Input
               name="cost"
               label="Custo da hora/aula"
+              required
               value={cost}
               onChange={(event) => { setCost(event.target.value) }}
             />
@@ -141,6 +146,7 @@ function TeacherForm() {
                 <Select
                   name="week_day"
                   label="Dia da semana"
+                  required
                   value={scheduleItem.week_day}
                   onChange={event => setScheduleItemValue(index, 'week_day', event.target.value)}
                   options={[

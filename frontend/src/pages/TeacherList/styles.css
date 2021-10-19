@@ -5,6 +5,10 @@
 
 #search-teachers {
   margin-top: 3.2rem;
+  width: 90vw;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
 }
 
 #search-teachers label {
@@ -12,7 +16,7 @@
 }
 
 #search-teachers button {
-  width: 100%;
+  width: 10rem;
   height: 5.6rem;
   background: var(--color-secundary);
   color: var(--color-button-text);
@@ -26,6 +30,7 @@
   text-decoration: none;
   transition: background-color 0.3s;
   margin-top: 3.2rem;
+  align-self: flex-end;
 }
 
 #search-teachers button:hover {
@@ -48,6 +53,10 @@
     column-gap: 16px;
     position: absolute;
     top: 190px;
+  }
+
+  #search-teachers button {
+    width: 100%;
   }
 
   #search-teachers .input-block + .input-block,
