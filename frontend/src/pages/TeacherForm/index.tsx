@@ -80,6 +80,7 @@ function TeacherForm() {
               name="name"
               label="Nome Completo"
               required
+              minLength={3}
               value={name}
               onChange={(event) => { setName(event.target.value )}}
             />
@@ -93,6 +94,7 @@ function TeacherForm() {
               name="whatsapp"
               label="Whatsapp"
               required
+              minLength={10}
               value={whatsapp}
               onChange={(event) => { setWhatsapp(event.target.value )}}
             />
@@ -117,6 +119,7 @@ function TeacherForm() {
               options={[
                 { value: 'Cálculo I', label: 'Cálculo I' },
                 { value: 'Banco de dados', label: 'Banco de dados' },
+                { value: 'Desenvolvimento web', label: 'Desenvolvimento web' },
                 { value: 'ReactJS', label: 'ReactJS' },
                 { value: 'VueJS', label: 'VueJS' },
                 { value: 'Algoritmos', label: 'Algoritmos' },
@@ -163,6 +166,7 @@ function TeacherForm() {
                   name="from"
                   label="Das"
                   type="time"
+                  required
                   value={scheduleItem.from}
                   onChange={event => setScheduleItemValue(index, 'from', event.target.value)}
                 />
@@ -170,6 +174,7 @@ function TeacherForm() {
                   name="to"
                   label="Até"
                   type="time"
+                  required
                   value={scheduleItem.to}
                   onChange={event => setScheduleItemValue(index, 'to', event.target.value)}
                  />
